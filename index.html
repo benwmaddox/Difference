@@ -1,47 +1,40 @@
 <html>
   <head>
     <title>Difference Comparison</title>
-    <script src="node_modules/diff/dist/diff.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css" />
-    <style>
-      pre {
-        counter-reset: line;
-      }
-      pre span::before {
-        content: counter(line);
-        counter-increment: line;
-        display: inline-block;
-        width: 30px;
-        background-color: #f0f0f0;
-        margin-right: 10px;
-        text-align: right;
-      }
-      del {
-        background-color: #ffdddd;
-        display: block; /* Ensure deletions are displayed on new lines */
-      }
-      ins {
-        background-color: #ddffdd;
-        display: block; /* Ensure insertions are displayed on new lines */
-      }
-    </style>
+    <script src="diff.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <textarea name="text1" rows="10" cols="50">
+    <textarea
+      name="text1"
+      rows="10"
+      cols="50"
+      style="width: 48vw; float: left; margin-left: 1vw"
+    >
 a
 b
 c
 d
 </textarea
     >
-    <textarea name="text2" rows="10" cols="50">
+    <textarea
+      name="text2"
+      rows="10"
+      cols="50"
+      style="width: 48vw; float: right; margin-right: 1vw"
+    >
 b
 c
 d
 e</textarea
     >
     <br />
-    <input type="submit" value="Submit" onclick="Compare()" />
+    <input
+      type="submit"
+      value="Submit"
+      onclick="Compare()"
+      style="margin-left: 1vw"
+    />
     <div id="comparisonResult"></div>
 
     <script>
