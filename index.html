@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Difference Comparison</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/diff/1.4.0/diff.js"></script> -->
+    <script src="node_modules/diff/dist/diff.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css" />
+  </head>
+  <body>
+    <textarea name="text1" rows="10" cols="50">
+a
+b
+c
+d        
+    </textarea>
+    <textarea name="text2" rows="10" cols="50">
+b
+c
+d
+e        
+    </textarea>
+    <br />
+    <input type="submit" value="Submit" onclick="Compare()" />
+
+    <script>
+      function Compare() {
+        var text1 = document.getElementsByName("text1")[0].value;
+        var text2 = document.getElementsByName("text2")[0].value;
+        var diff = Diff.diffChars(text1, text2);
+        var display = document.createElement("div");
+        for (var i = 0; i < diff.length; i++) {
+          if (diff[i].added && diff[i + 1] && diff[i + 1].removed) {
+            var swap = diff[i];
+            diff[i] = diff[i + 1];
+            diff[i + 1] = swap;
+          }
+          var node;
+          if (diff[i].removed) {
+            node = document.createElement("del");
+            node.appendChild(document.createTextNode(diff[i].value));
+          } else if (diff[i].added) {
+            node = document.createElement("ins");
+            node.appendChild(document.createTextNode(diff[i].value));
+          } else {
+            node = document.createTextNode(diff[i].value);
+          }
+          display.appendChild(node);
+        }
+        document.body.appendChild(display);
+      }
+    </script>
+  </body>
+</html>
