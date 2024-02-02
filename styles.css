@@ -550,9 +550,11 @@ pre {
 }
 del {
   background-color: #ffdddd;
+  display: inline-block;
 }
 ins {
   background-color: #ddffdd;
+  display: inline-block;
 }
 
 #comparisonResult {
@@ -566,10 +568,4 @@ ins {
   margin: 0; /* Removes default margin from pre elements for a tighter layout */
   padding: 10px; /* Adds some padding for readability */
   box-sizing: border-box; /* Ensures padding does not affect overall width */
-}
-
-del,
-ins {
-  display: block; /* Ensures they are displayed correctly within pre elements */
-  white-space: pre-wrap; /* Maintains whitespace for inline elements */
 }
