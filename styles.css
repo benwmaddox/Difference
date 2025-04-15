@@ -551,21 +551,35 @@ pre {
 del {
   background-color: #ffdddd;
   display: inline-block;
+  text-decoration: line-through;
+  color: #b30000;
+  padding: 2px 4px;
+  border-radius: 3px;
 }
 ins {
   background-color: #ddffdd;
   display: inline-block;
+  text-decoration: none;
+  color: #006400;
+  padding: 2px 4px;
+  border-radius: 3px;
 }
 
 #comparisonResult {
-  /* width: 100%; */
   overflow: auto; /* Ensures the container wraps floated elements */
-  margin: 0 auto; /* Centers the container */
+  margin: 20px 0; /* Add vertical spacing around the result */
   width: 98vw;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  background-color: var(--background-main);
 }
 
 #comparisonResult pre {
   margin: 0; /* Removes default margin from pre elements for a tighter layout */
-  padding: 10px; /* Adds some padding for readability */
+  padding: 20px; /* Increased padding for better readability */
   box-sizing: border-box; /* Ensures padding does not affect overall width */
+  line-height: 1.5;
+  font-size: 14px;
+  white-space: pre-wrap; /* Ensures text wraps */
+  word-break: break-word; /* Prevents overflow of long words */
 }
